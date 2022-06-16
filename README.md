@@ -11,7 +11,30 @@ Learning Steady-States of Iterative Algorithms over Graphs (http://proceedings.m
 
 This project depends on the graphnn library. The building instruction can be found here:
 
-    https://github.com/Hanjun-Dai/graphnn
+###### 2.1) Download and install cuda from https://developer.nvidia.com/cuda-toolkit
+
+    wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_8.0.44-1_amd64.deb
+    sudo dpkg -i cuda-repo-ubuntu1404_8.0.44-1_amd64.deb
+    sudo apt-get update
+    sudo apt-get install cuda
+    
+  in .bashrc, add the following path (suppose you installed to the default path)
+  
+    export CUDA_HOME=/usr/local/cuda
+    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+    
+###### 2.2) Download and install intel mkl
+
+  in .bashrc, add the following path
+  
+    source {path_to_your_intel_root/name_of_parallel_tool_box}/bin/psxevars.sh
+
+###### 2.3) Build static library
+
+    cp make_common.example make_common
+    modify configurations in make_common file
+    make -j8
     
 ##### 3) Download the data
 Use the following dropbox link:
